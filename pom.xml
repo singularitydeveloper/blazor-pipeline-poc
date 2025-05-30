@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>poc.blazor</groupId>
-	<artifactId>my-blazor-app</artifactId>
-	<version>1.0.0</version>
-	<packaging>zip</packaging>
+	<artifactId>blazorapp1</artifactId>
+	<version>1.0.1</version>
+	<packaging>pom</packaging>
 	<!-- You can also use 'jar' or 'nupkg' if needed -->
 
 	<name>Blazor App Artifact</name>
@@ -17,14 +17,27 @@
 			<!-- This plugin can deploy your Blazor artifact to Nexus -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.1</version>
-				<configuration>
-					<file>${project.basedir}/my-blazor-app.zip</file>
-					<!-- your built file -->
-					<repositoryId>nexus</repositoryId>
-					<url>http://localhost:8084/repository/blazor-poc-maven</url>
-				</configuration>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>deploy-zip</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy-file</goal>
+            </goals>
+            <configuration>
+              <file>${project.basedir}/blazorapp1.zip</file>
+              <repositoryId>blazor-poc-maven</repositoryId>
+              <url>http://localhost:8084/repository/blazor-poc-maven/</url>
+              <groupId>poc.blazor</groupId>
+              <artifactId>blazorapp1</artifactId>
+              <version>1.0.0</version>
+              <packaging>zip</packaging>
+              <generatePom>true</generatePom>
+            </configuration>
+          </execution>
+        </executions>
 			</plugin>
 		</plugins>
 	</build>
