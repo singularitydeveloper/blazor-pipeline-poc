@@ -6,7 +6,7 @@
 
 	<groupId>poc.blazor</groupId>
 	<artifactId>blazorapp1</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>pom</packaging>
 	<!-- You can also use 'jar' or 'nupkg' if needed -->
 
@@ -32,7 +32,7 @@
               <url>http://localhost:8084/repository/blazor-poc-maven/</url>
               <groupId>poc.blazor</groupId>
               <artifactId>blazorapp1</artifactId>
-              <version>1.0.0</version>
+              <version>1.0.2</version>
               <packaging>zip</packaging>
               <generatePom>true</generatePom>
             </configuration>
